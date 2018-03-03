@@ -17,6 +17,7 @@
                      "jedi_latest"
                      "rope_version"
                      "rope_latest"
+                     "importmagic_version"
                      ))
         (should (not (eq :not-set (gethash key config :not-set))))))))
 
