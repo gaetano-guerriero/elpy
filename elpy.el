@@ -288,9 +288,6 @@ option is `pdb'."
 ;;; Elpy Mode
 (defvar elpy-refactor-map
   (let ((map (make-sparse-keymap "Refactor")))
-    (define-key map (kbd "i") (cons (format "%smport fixup"
-                                            (propertize "i" 'face 'bold))
-                                    'elpy-importmagic-fixup))
     (define-key map (kbd "f") (cons (format "%sormat code"
                                             (propertize "f" 'face 'bold))
                                     'elpy-format-code))
@@ -311,7 +308,6 @@ option is `pdb'."
     ;; (define-key map (kbd "C-M-x")   'python-shell-send-defun)
     ;; (define-key map (kbd "C-c <")   'python-indent-shift-left)
     ;; (define-key map (kbd "C-c >")   'python-indent-shift-right)
-    (define-key map (kbd "C-c RET") 'elpy-importmagic-add-import)
     (define-key map (kbd "C-c C-b") 'elpy-nav-expand-to-indentation)
     (define-key map (kbd "C-c C-c") 'elpy-shell-send-region-or-buffer)
     (define-key map (kbd "C-c C-d") 'elpy-doc)
@@ -2257,20 +2253,6 @@ Also sort the imports in the import statement blocks."
                                                             (elpy-rpc--buffer-contents)))))
     (unless (stringp res)
       (elpy-buffer--replace-block res))))
-
-;;;;;;;;;;;;;;;;;;;;;
-;;; Importmagic - make obsolete
-
-(defun elpy-importmagic-add-import ()
-  (interactive))
-(defun elpy-importmagic-fixup ()
-  (interactive))
-
-(make-obsolete 'elpy-importmagic-add-import "support for importmagic has been dropped." "1.17.0")
-(make-obsolete 'elpy-importmagic-fixup "support for importmagic has been dropped." "1.17.0")
-
-;;;;;;;;;;;;;;;;;;;;;
-;;; Code reformatting
 
 (defun elpy-format-code ()
   "Format code using the available formatter."
