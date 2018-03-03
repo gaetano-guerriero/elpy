@@ -712,6 +712,13 @@ Refactoring
 .. _yapf: https://github.com/google/yapf
 .. _black: https://github.com/ambv/black
 
+.. command:: elpy-importmagic-fixup
+   :kbd: C-c C-r i
+
+   Query for new imports of unresolved symbols, and remove unreferenced
+   imports. Also sort the imports in the import statement blocks.
+
+
 
 
 Profiling

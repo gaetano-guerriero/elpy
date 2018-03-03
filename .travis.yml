@@ -56,6 +56,7 @@ install:
   - if [[ "$TRAVIS_PYTHON_VERSION" < 3 ]] ; then
       pip install -r requirements-dev2.txt --upgrade ;
     fi
+  - pip install importmagic
   - pip install coveralls
   - virtualenv ~/.virtualenvs/elpy-test-venv
 script:
